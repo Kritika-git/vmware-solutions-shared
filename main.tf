@@ -146,9 +146,9 @@ resource "vcd_vapp_org_network" "tutorial_network" {
 # Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-centos8-01-latest"
+  name          = "vm-rhcos1-latest"
   catalog_name  = "Public Catalog"
-  template_name = "CentOS-8-Template-Official"
+  template_name = "rhcos OpenShift 4.8.14"
   memory        = 8192
   cpus          = 2
 
