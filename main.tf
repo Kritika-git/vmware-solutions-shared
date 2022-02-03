@@ -17,7 +17,7 @@ module ibm_vmware_solutions_shared_instance {
 # Create a routed network
 resource "vcd_network_routed" "tutorial_network" {
 
-  name         = "Tutorial-Network"
+  name         = "Tutorial-Network-latest"
   edge_gateway = module.ibm_vmware_solutions_shared_instance.edge_gateway_name
   gateway      = "192.168.100.1"
 
@@ -134,7 +134,7 @@ resource "vcd_nsxv_snat" "rule_ibm_private" {
 
 # Create vcd App
 resource "vcd_vapp" "vmware_tutorial_vapp" {
-  name = "vmware-tutorial-vApp"
+  name = "vmware-tutorial-vApp-1"
 }
 
 # Connect org Network to vcpApp
@@ -146,7 +146,7 @@ resource "vcd_vapp_org_network" "tutorial_network" {
 # Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-centos8-01"
+  name          = "vm-centos8-01-latest"
   catalog_name  = "Public Catalog"
   template_name = "CentOS-8-Template-Official"
   memory        = 8192
