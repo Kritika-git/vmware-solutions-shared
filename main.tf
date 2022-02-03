@@ -153,7 +153,7 @@ resource "vcd_vapp_vm" "vm_1" {
   cpus          = 2
 
   guest_properties = {
-    "guest.hostname" = "vm-centos8-01"
+    "guest.hostname" = "vm-rhcos"
   }
 
   network {
