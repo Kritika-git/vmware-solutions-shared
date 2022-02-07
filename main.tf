@@ -143,15 +143,17 @@ resource "vcd_vapp_org_network" "tutorial_network" {
   org_network_name = vcd_network_routed.tutorial_network.name
 }
 
-# Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-centos-latest1"
+  name          = "vm-centos8-01"
   catalog_name  = "Public Catalog"
   template_name = "CentOS-8-Template-Official"
   memory        = 8192
   cpus          = 2
 
+  guest_properties = {
+    "guest.hostname" = "vm-centos8-01"
+  }
 
   network {
     type               = "org"
@@ -161,9 +163,6 @@ resource "vcd_vapp_vm" "vm_1" {
   }
 
   customization {
-    allow_local_admin_password = true
     auto_generate_password     = false
     admin_password             = "test"
-    # Other customization options to override the ones from template
   }
-}
