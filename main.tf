@@ -148,11 +148,16 @@ resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
   name          = "vm-centos-latest"
   catalog_name  = "Public Catalog"
-  template_name = "CentOS-8-Template-Official"
+  template_name = "rhcos OpenShift 4.8.14"
   memory        = 8192
   cpus          = 2
-  guest_properties = {
-    "guest.hostname" = "vm-centos8-01"
+  customization {
+    force                      = true
+    change_sid                 = true
+    allow_local_admin_password = true
+    auto_generate_password     = false
+    admin_password             = "test"
+    # Other customization options to override the ones from template
   }
 
 
