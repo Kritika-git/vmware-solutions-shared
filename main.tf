@@ -151,14 +151,6 @@ resource "vcd_vapp_vm" "vm_1" {
   template_name = "rhcos OpenShift 4.8.14"
   memory        = 8192
   cpus          = 2
-  customization {
-    force                      = true
-    change_sid                 = true
-    allow_local_admin_password = true
-    auto_generate_password     = false
-    admin_password             = "test"
-    # Other customization options to override the ones from template
-  }
 
 
   network {
@@ -169,7 +161,11 @@ resource "vcd_vapp_vm" "vm_1" {
   }
 
   customization {
+    force                      = true
+    change_sid                 = true
+    allow_local_admin_password = true
     auto_generate_password     = false
     admin_password             = "test"
+    # Other customization options to override the ones from template
   }
 }
