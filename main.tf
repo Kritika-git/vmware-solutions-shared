@@ -146,14 +146,14 @@ resource "vcd_vapp_org_network" "tutorial_network" {
 # Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-centos8-01"
+  name          = "vm-rhel-01"
   catalog_name  = "Public Catalog"
-  template_name = "CentOS-8-Template-Official"
+  template_name = "RedHat-7-Template-Official"
   memory        = 8192
   cpus          = 2
 
   guest_properties = {
-    "guest.hostname" = "vm-centos8-01"
+    "guest.hostname" = "vm-rhel-01"
   }
 
   network {
