@@ -161,8 +161,6 @@ resource "vcd_vapp_vm" "vm_1" {
   }
 
   customization {
-    force                      = true
-    change_sid                 = true
     allow_local_admin_password = true
     auto_generate_password     = false
     admin_password             = "test"
