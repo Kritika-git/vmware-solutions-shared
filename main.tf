@@ -146,12 +146,15 @@ resource "vcd_vapp_org_network" "tutorial_network" {
 # Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-rhcos-latest"
-  catalog_name  = "test-catalog"
-  template_name = "fedora-coreos Fedora CoreOS stable-kritikA"
-  memory        = 8192
-  cpus          = 2
+  name          = "vm-rhel-01"
+  catalog_name  = "Public Catalog"
+  template_name = "RedHat-7-Template-Official"
+  memory        = 16384
+  cpus          = 4
 
+  guest_properties = {
+    "guest.hostname" = "vm-rhel-01"
+  }
 
   network {
     type               = "org"
@@ -161,9 +164,6 @@ resource "vcd_vapp_vm" "vm_1" {
   }
 
   customization {
-    allow_local_admin_password = true
-    auto_generate_password     = false
-    admin_password             = "test"
-    # Other customization options to override the ones from template
+    auto_generate_password     = true
   }
 }
