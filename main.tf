@@ -150,9 +150,7 @@ resource "vcd_vapp_vm" "vm_1" {
   template_name = "rhcos OpenShift 4.8.14"
   memory        = 16384
   cpus          = 4
-  power_on      = false
-
-
+  
   network {
     type               = "org"
     name               = vcd_vapp_org_network.tutorial_network.org_network_name
@@ -170,4 +168,5 @@ resource "vcd_vapp_vm" "vm_1" {
     admin_password             = "test"
     # Other customization options to override the ones from template
   }
+  power_on      = true
 }
