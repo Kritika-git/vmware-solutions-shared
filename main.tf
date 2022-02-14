@@ -142,19 +142,15 @@ resource "vcd_vapp_org_network" "tutorial_network" {
   vapp_name        = vcd_vapp.vmware_tutorial_vapp.name
   org_network_name = vcd_network_routed.tutorial_network.name
 }
-
 # Create VM
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
-  name          = "vm-rhel-01"
+  name          = "vm-rhcos-latest"
   catalog_name  = "Public Catalog"
-  template_name = "RedHat-7-Template-Official"
+  template_name = "rhcos OpenShift 4.8.14"
   memory        = 16384
   cpus          = 4
 
-  guest_properties = {
-    "guest.hostname" = "vm-rhel-01"
-  }
 
   network {
     type               = "org"
@@ -164,6 +160,9 @@ resource "vcd_vapp_vm" "vm_1" {
   }
 
   customization {
-    auto_generate_password     = true
+    allow_local_admin_password = true
+    auto_generate_password     = false
+    admin_password             = "test"
+    # Other customization options to override the ones from template
   }
 }
