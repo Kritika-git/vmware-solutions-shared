@@ -150,6 +150,7 @@ resource "vcd_vapp_vm" "vm_1" {
   template_name = "rhcos OpenShift 4.8.14"
   memory        = 16384
   cpus          = 4
+  power_on      = false
 
 
   network {
