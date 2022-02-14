@@ -159,6 +159,10 @@ resource "vcd_vapp_vm" "vm_1" {
     ip_allocation_mode = "POOL"
     is_primary         = true
   }
+  guest_properties = {
+    "guestinfo.ignition.config.data"           = "ewoJImlnbml0aW9uIjogewoJCSJ2ZXJzaW9uIjogIjMuMi4wIgoJfSwKCSJwYXNzd2QiOiB7CgkJInVzZXJzIjogW3sKCQkJIm5hbWUiOiAiY29yZSIsCgkJCSJwYXNzd29yZEhhc2giOiAiJDJhJDA0JDF3ZVFpTkFReE1WNEp1SnAwbmxoT3VtQUs0SzMvQ3pmYVdyTEVzZFkyVmZjVXNSd0JpNjdHIgoJCX1dCgl9Cn0="
+    "guestinfo.ignition.config.data.encoding"  = "base64"
+  } 
 
   customization {
     allow_local_admin_password = true
