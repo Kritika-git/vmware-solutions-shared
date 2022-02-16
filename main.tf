@@ -147,7 +147,7 @@ resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
   name          = "vm-rhcos-latest-test"
   catalog_name  = "Public Catalog"
-  template_name = "rhcos OpenShift 4.8.14"
+  template_name = "rhcos OpenShift 4.6.8"
   memory        = 16384
   cpus          = 4
   
