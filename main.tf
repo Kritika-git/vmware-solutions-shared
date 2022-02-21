@@ -146,7 +146,7 @@ resource "vcd_vapp_org_network" "tutorial_network" {
 resource "vcd_vapp_vm" "vm_1" {
   vapp_name     = vcd_vapp.vmware_tutorial_vapp.name
   name          = "vm-fedora-latest-test"
-  catalog_name  = ""rhcos-test" 
+  catalog_name  = "rhcos-test" 
   template_name = "fedora-coreos"
   memory        = 16384
   cpus          = 4
